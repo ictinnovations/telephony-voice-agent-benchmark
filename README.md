@@ -107,6 +107,11 @@ If you publish numbers produced by this tool, cite the version you ran. The conc
 
 Built at [ICT Innovations](https://www.ictinnovations.com/) while fixing our own agent, which had every one of the defects the reference agent now simulates. The write-up of how each was found and measured is [here](https://ictinnovations.com/asterisk-ai-voice-agent-lessons-audiosocket-barge-in/).
 
+Two longer write-ups:
+
+- [Why we measure from the caller's seat](https://ictinnovations.com/caller-side-voice-agent-benchmark-open-source/) covers the design and the falsification pass.
+- [How to benchmark your own agent](https://ictinnovations.com/benchmark-telephony-voice-agent-guide/) is the practical walkthrough, including what to fix when a metric moves.
+
 Related open source: [asterisk-ai-voice-agent](https://github.com/ictinnovations/asterisk-ai-voice-agent), [asterisk-audiosocket](https://github.com/ictinnovations/asterisk-audiosocket) for the protocol in TypeScript, and [piper-tts-server](https://github.com/ictinnovations/piper-tts-server) for the paced synthesis layer.
 
 MIT licensed.
