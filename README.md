@@ -5,6 +5,7 @@
 [![CI](https://github.com/ictinnovations/telephony-voice-agent-benchmark/actions/workflows/ci.yml/badge.svg)](https://github.com/ictinnovations/telephony-voice-agent-benchmark/actions)
 [![PyPI](https://img.shields.io/pypi/v/tvbench.svg)](https://pypi.org/project/tvbench/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22511442.svg)](https://doi.org/10.5281/zenodo.22511442)
 
 Voice agents get benchmarked on transcription accuracy and model latency. Callers do not experience either of those directly. What they experience is whether the agent's words arrive evenly, whether there are holes in the middle of a sentence, and how long the agent keeps talking after they interrupt.
 
@@ -90,6 +91,17 @@ Other limits worth stating plainly:
 `results/` takes pull requests. If you maintain a voice agent and you think these numbers are wrong, or unflattering, or measured badly, the fastest way to prove it is a run of your own with the command line included.
 
 Disagreement backed by a reproducible number is the entire point.
+
+## Citing this
+
+Every release is archived on Zenodo with a DOI, so results measured with a given version stay reproducible even if the repository moves.
+
+- **All versions:** [10.5281/zenodo.22511442](https://doi.org/10.5281/zenodo.22511442)
+- **v0.1.0:** [10.5281/zenodo.22511443](https://doi.org/10.5281/zenodo.22511443)
+
+> Almas, T. (2026). *tvbench: a caller-side benchmark for telephony voice agents* (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.22511442
+
+If you publish numbers produced by this tool, cite the version you ran. The concept DOI above always resolves to the newest release; the version DOI pins the exact one a result came from.
 
 ## Who made this
 
