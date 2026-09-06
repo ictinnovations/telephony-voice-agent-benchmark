@@ -1,0 +1,245 @@
+{
+  "environment": {
+    "tvbench": "0.1.0",
+    "python": "3.14.4",
+    "system": "Linux 6.6.87.2-microsoft-standard-WSL2",
+    "machine": "x86_64",
+    "cpu_count": 8,
+    "utc": "2026-09-06T07:37:19+00:00"
+  },
+  "runs": 5,
+  "cases": [
+    {
+      "mode": "paced",
+      "scenario": "greeting",
+      "behaviour": "Correct: one frame every 20 ms",
+      "median": {
+        "opening.first_audible_ms": {
+          "median": 420.7,
+          "min": 419.6,
+          "max": 491.3,
+          "n": 5
+        },
+        "pacing.worst_burst_frames": {
+          "median": 2,
+          "min": 2,
+          "max": 2,
+          "n": 5
+        },
+        "pacing.realtime_ratio": {
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n": 5
+        },
+        "pacing.median_gap_ms": {
+          "median": 19.93,
+          "min": 19.67,
+          "max": 20.0,
+          "n": 5
+        },
+        "continuity.worst_gap_ms": {
+          "median": 21.1,
+          "min": 20.9,
+          "max": 21.3,
+          "n": 5
+        }
+      },
+      "verdicts": [
+        "Paced: at most 2 frame(s) landed in any 20 ms window.",
+        "Continuous: worst hole inside the speech was 21.0 ms."
+      ]
+    },
+    {
+      "mode": "burst",
+      "scenario": "greeting",
+      "behaviour": "Writes the whole utterance at once",
+      "median": {
+        "opening.first_audible_ms": {
+          "median": 420.4,
+          "min": 420.0,
+          "max": 454.3,
+          "n": 5
+        },
+        "pacing.worst_burst_frames": {
+          "median": 300,
+          "min": 300,
+          "max": 300,
+          "n": 5
+        },
+        "pacing.realtime_ratio": {
+          "median": 2764.09,
+          "min": 2223.7,
+          "max": 2894.36,
+          "n": 5
+        },
+        "pacing.median_gap_ms": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 5
+        },
+        "continuity.worst_gap_ms": {
+          "median": 0.1,
+          "min": 0.1,
+          "max": 0.2,
+          "n": 5
+        }
+      },
+      "verdicts": [
+        "Bursting: 300 frames arrived inside one 20 ms window. On a real channel most of that audio is discarded by the far end.",
+        "Delivered 2843.467x faster than real time, which is the same problem seen from the other side.",
+        "Continuous: worst hole inside the speech was 0.1 ms."
+      ]
+    },
+    {
+      "mode": "gappy",
+      "scenario": "greeting",
+      "behaviour": "Stops mid-turn, like sentence-at-a-time synthesis",
+      "median": {
+        "opening.first_audible_ms": {
+          "median": 424.9,
+          "min": 420.8,
+          "max": 452.9,
+          "n": 5
+        },
+        "pacing.worst_burst_frames": {
+          "median": 2,
+          "min": 2,
+          "max": 2,
+          "n": 5
+        },
+        "pacing.realtime_ratio": {
+          "median": 0.93,
+          "min": 0.93,
+          "max": 0.93,
+          "n": 5
+        },
+        "pacing.median_gap_ms": {
+          "median": 19.92,
+          "min": 19.87,
+          "max": 19.98,
+          "n": 5
+        },
+        "continuity.worst_gap_ms": {
+          "median": 520.4,
+          "min": 520.2,
+          "max": 521.0,
+          "n": 5
+        }
+      },
+      "verdicts": [
+        "Paced: at most 2 frame(s) landed in any 20 ms window.",
+        "Audible hole of 521.0 ms inside the agent's own turn."
+      ]
+    },
+    {
+      "mode": "paced",
+      "scenario": "bargein",
+      "behaviour": "Stops when the caller talks over it",
+      "median": {
+        "opening.first_audible_ms": {
+          "median": 420.5,
+          "min": 420.1,
+          "max": 451.6,
+          "n": 5
+        },
+        "pacing.worst_burst_frames": {
+          "median": 2,
+          "min": 2,
+          "max": 2,
+          "n": 5
+        },
+        "pacing.realtime_ratio": {
+          "median": 1.02,
+          "min": 1.02,
+          "max": 1.02,
+          "n": 5
+        },
+        "pacing.median_gap_ms": {
+          "median": 20.21,
+          "min": 19.9,
+          "max": 20.29,
+          "n": 5
+        },
+        "continuity.worst_gap_ms": {
+          "median": 21.2,
+          "min": 20.8,
+          "max": 22.0,
+          "n": 5
+        },
+        "barge_in.cut_ms": {
+          "median": 96.9,
+          "min": 94.4,
+          "max": 115.8,
+          "n": 5
+        },
+        "barge_in.audio_wasted_ms": {
+          "median": 100.0,
+          "min": 100.0,
+          "max": 120.0,
+          "n": 5
+        }
+      },
+      "verdicts": [
+        "Paced: at most 2 frame(s) landed in any 20 ms window.",
+        "Continuous: worst hole inside the speech was 21.6 ms.",
+        "Barge-in cut the agent off in 94.4 ms."
+      ]
+    },
+    {
+      "mode": "deaf",
+      "scenario": "bargein",
+      "behaviour": "Ignores the caller and keeps talking",
+      "median": {
+        "opening.first_audible_ms": {
+          "median": 420.5,
+          "min": 419.9,
+          "max": 451.4,
+          "n": 5
+        },
+        "pacing.worst_burst_frames": {
+          "median": 2,
+          "min": 2,
+          "max": 2,
+          "n": 5
+        },
+        "pacing.realtime_ratio": {
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n": 5
+        },
+        "pacing.median_gap_ms": {
+          "median": 20.23,
+          "min": 20.07,
+          "max": 20.23,
+          "n": 5
+        },
+        "continuity.worst_gap_ms": {
+          "median": 21.1,
+          "min": 21.0,
+          "max": 22.2,
+          "n": 5
+        },
+        "barge_in.cut_ms": {
+          "median": 4974.4,
+          "min": 4972.5,
+          "max": 4975.2,
+          "n": 5
+        },
+        "barge_in.audio_wasted_ms": {
+          "median": 4980.0,
+          "min": 4980.0,
+          "max": 4980.0,
+          "n": 5
+        }
+      },
+      "verdicts": [
+        "Paced: at most 2 frame(s) landed in any 20 ms window.",
+        "Continuous: worst hole inside the speech was 22.2 ms.",
+        "Barge-in took 4975.2 ms to take effect, so the caller talked over the agent for that long."
+      ]
+    }
+  ]
+}

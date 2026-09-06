@@ -1,0 +1,14 @@
+{
+  "title": "tvbench: a caller-side benchmark for telephony voice agents",
+  "description": "<p>tvbench measures what a caller hears from a telephony voice agent rather than what the agent reports about itself. Acting as the Asterisk side of an AudioSocket connection, it timestamps every audio frame an agent returns and derives frame pacing, delivery burstiness, continuity within a turn, and barge-in cut latency.</p><p>A reference agent with switchable defects (bursting, mid-turn stalls, ignoring an interrupting caller) provides a falsification pass, so every metric is demonstrated to move when the defect it targets is introduced. Published results include that validation matrix.</p>",
+  "upload_type": "software",
+  "license": "mit",
+  "access_right": "open",
+  "creators": [
+    { "name": "Almas, Tahir", "affiliation": "ICT Innovations" }
+  ],
+  "keywords": ["telephony", "voice agent", "benchmark", "asterisk", "audiosocket", "latency", "barge-in", "VoIP", "speech interface"],
+  "related_identifiers": [
+    { "identifier": "https://github.com/ictinnovations/asterisk-ai-voice-agent", "relation": "isSupplementTo", "scheme": "url" }
+  ]
+}
